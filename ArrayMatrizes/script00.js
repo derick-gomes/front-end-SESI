@@ -37,7 +37,7 @@ console.log[texto];
 
 //percorrer um array (for // foreuch)
 for(let i = 0; i<numeros.length; i++); (
-    console.log("numeros["+i+"]="numeros)
+    console.log("numeros["+i+"]="+numeros[i])
 
 );
 
@@ -49,7 +49,15 @@ for(let i = 0; i<100; i++)(
 console.log(lista);
 
 //retorna o indice
-texto.indice("tênis";)
+texto.indexOf("tênis");
+
+// ForeEach
+texto.forEach(x=> (
+    console.log(x)
+));
+
+
+
 
 
 
