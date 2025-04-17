@@ -1,12 +1,11 @@
 body{
-    font-family: Arial,Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 20px;
     background-color: aliceblue;
 }
 
 h1{
-     text-align: center;
-
+    text-align: center;
 }
 
 section{
@@ -15,19 +14,18 @@ section{
     margin: 15px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-
 }
 
 button{
-    background-color: green;
+    background-color: lightgreen;
     color: white;
     border: none;
     padding: 8px;
     margin-top: 5px;
     cursor: pointer;
     border-radius: 5px;
-
 }
+
 button:hover{
     background-color: green;
 }
