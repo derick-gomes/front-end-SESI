@@ -17,7 +17,7 @@ export class ProdutoFormComponent {
 
   adicionarProduto(){
     const produto = new Produto(this.dadosService.getProdutos().length+1, this.nome, this.preco);
-    this.dadosService.adicionarProduto(produto);
+    this.dadosService.adicionarPorduto(produto);
     this.nome="";
     this.preco=0;
   }
