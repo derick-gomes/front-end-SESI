@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vaga } from 'src/app/models/vaga.models';
+import { Vaga } from 'src/app/models/vaga.model';
 import { VagaService } from 'src/app/service/vaga.service';
 
 @Component({
@@ -29,10 +29,39 @@ export class PainelVagasComponent implements OnInit{
   }
 
   // listar Vaga Unica
-  listarVaga(vaga: Vaga){
+  listarVagaUnica(vaga: Vaga){
     this.vaga = vaga
   }
 
+  //cadastrar nova Vaga
+  cadastrar() {
+    this._vagasService.cadastrarVaga(this.vaga).subscribe(
+      () => {
+        this.vaga = new Vaga(0,"","","",0);
+        this.listarVagas();
+      },
+      (err) => {console.error("Erro ao Cadastrar",err);}
+    );
+  }
+
+  // atualizar nova Vaga
+  atualizar(id:number){
+    this._vagasService.atualizarVaga(id, this.vaga).subscribe(
+      () => {
+        this.vaga = new Vaga(0,"","","",0);
+        this.listarVagas();
+      },
+      (err) =>{console.log("Erro ao atualizar",err);}
+    );
+  }
+
+  //deletar vaga
+  excluir(id:number){
+    this._vagasService.removerVaga(id).subscribe(
+      () => { this.listarVagas();},
+      (err) => {console.log("Erro ao Deletar",err)}
+    );
+  }
 
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vaga } from 'src/app/models/vaga.models';
+import { Vaga } from 'src/app/models/vaga.model';
 import { VagaService } from 'src/app/service/vaga.service';
 
 @Component({

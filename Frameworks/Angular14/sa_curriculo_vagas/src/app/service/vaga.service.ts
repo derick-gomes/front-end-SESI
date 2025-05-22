@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Vaga } from '../models/vaga.models';
+import { Vaga } from '../models/vaga.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class VagaService {
   //Comunição CRUD da API ( get / post/ put / delete)
 
   //obter a lista de vagas (get)
-  getVagas(): Observable<Vaga[]> {
-    return this.http.get<Vaga[]>(this.apiUrl);
+  getVagas(): Observable<Vaga[]> { //conexões da informações do banco com o front
+    return this.http.get<Vaga[]>(this.apiUrl);// conexão com a API httpClient
   }
 
   //Cadastrar(post)
