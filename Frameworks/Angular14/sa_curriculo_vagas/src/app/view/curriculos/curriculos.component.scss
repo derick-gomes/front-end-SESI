@@ -1,0 +1,55 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.curriculo-card {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.curriculo-card h3 {
+  margin-top: 0;
+}
+
+.curriculo-card a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.curriculo-card a:hover {
+  text-decoration: underline;
+}
+
+.acoes {
+  margin-top: 15px;
+}
+
+.acoes button {
+  margin-right: 10px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.acoes button:first-child {
+  background-color: #1976d2;
+  color: white;
+}
+
+.acoes button:last-child {
+  background-color: #d32f2f;
+  color: white;
+}

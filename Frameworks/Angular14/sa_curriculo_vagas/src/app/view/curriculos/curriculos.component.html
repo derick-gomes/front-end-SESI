@@ -1,1 +1,46 @@
-<p>curriculos works!</p>
+<div class="container">
+  <h2>Currículos Cadastrados</h2>
+
+  <div *ngIf="curriculos.length === 0">
+    <p>Nenhum currículo encontrado.</p>
+  </div>
+
+  <div *ngFor="let curriculo of curriculos" class="curriculo-card">
+    <h3>{{ curriculo.nome }}</h3>
+    <p><strong>Email:</strong> {{ curriculo.email }}</p>
+    <p><strong>Telefone:</strong> {{ curriculo.telefone }}</p>
+    <p><strong>LinkedIn:</strong> 
+      <a [href]="curriculo.linkedin" target="_blank">{{ curriculo.linkedin }}</a>
+    </p>
+    <p><strong>Resumo:</strong> {{ curriculo.resumo }}</p>
+
+    <h4>Experiências</h4>
+    <ul>
+      <li *ngFor="let exp of curriculo.experiencias">
+        {{ exp.cargo }} em {{ exp.empresa }} ({{ exp.inicio }} - {{ exp.fim || 'Atual' }})
+      </li>
+    </ul>
+
+    <h4>Formações</h4>
+    <ul>
+      <li *ngFor="let formacao of curriculo.formacoes">
+        {{ formacao.grau }} em {{ formacao.curso }} - {{ formacao.instituicao }}
+        ({{ formacao.inicio }} - {{ formacao.fim || 'Atual' }})
+      </li>
+    </ul>
+
+    <h4>Habilidades</h4>
+    <ul>
+      <li *ngFor="let hab of curriculo.habilidades">
+        {{ hab.nome }} ({{ hab.nivel }})
+      </li>
+    </ul>
+
+    <div class="acoes">
+      <button (click)="editarCurriculo(curriculo.id)">Editar</button>
+      <button (click)="deletarCurriculo(curriculo.id)">Excluir</button>
+    </div>
+
+    <hr>
+  </div>
+</div>

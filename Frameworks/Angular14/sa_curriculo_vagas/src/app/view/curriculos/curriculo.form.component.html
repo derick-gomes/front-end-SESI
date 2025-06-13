@@ -1,0 +1,23 @@
+<form [formGroup]="curriculoForm" (ngSubmit)="onSubmit()">
+  <label>Nome:
+    <input type="text" formControlName="nome">
+  </label>
+
+  <label>Email:
+    <input type="email" formControlName="email">
+  </label>
+
+  <label>Telefone:
+    <input type="text" formControlName="telefone">
+  </label>
+
+  <label>LinkedIn:
+    <input type="text" formControlName="linkedin">
+  </label>
+
+  <label>Resumo:
+    <textarea formControlName="resumo"></textarea>
+  </label>
+
+  <button type="submit" [disabled]="curriculoForm.invalid">Salvar Currículo</button>
+</form>
