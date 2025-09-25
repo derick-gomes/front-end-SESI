@@ -112,8 +112,8 @@ graph TD
         caso5([Acessar o DashBoard])
     end
 
-    Tecnico([Técnico de Manutenção])
-    Gerente([Gerente de Manutenção])
+    Tecnico([👩‍🔧Técnico de Manutenção])
+    Gerente([👩‍💼Gerente de Manutenção])
     Admin([Administrador do Sistema])
 
     Tecnico --> caso1
@@ -129,9 +129,31 @@ graph TD
     Admin --> caso4
     Admin --> caso5
 
-    caso2 -.-> caso1
-    caso3 -.-> caso1
-    caso4 -.-> caso1
-    caso5 -.-> caso1
+    caso1 -.-> caso2
+    caso1 -.-> caso3
+    caso1 -.-> caso4
+    caso1 -.-> caso5
     
+```
+3. ### Fluxo
+Detalha o passo a passo para realizar uma ação no sistema
+
+- Diagrama de fluxo de Login
+    - O usuário acessa a tela de login
+    - Insere as credenciais
+    - O sistema verifica as Credenciais
+        - se sim: ger um JWT (Token) => Dashboard
+        - se não: manda uma mensagem de erro - Permanece na tela de Login
+
+```mermaid
+
+graph TD
+    A[Início] --> B{Acessa a Tela de Login}
+    B --> C[Preencher Email e Senha]
+    C --> D{Validar as Credenciais}
+    D --> SIM --> E[Gerar um Token JWT]
+    E --> F[DashBoard]
+    D --> NÃO --> G[Mensagem de Erro]
+    G --> B
+
 ```
