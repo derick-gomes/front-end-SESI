@@ -36,3 +36,7 @@ export const deleteOrdemServico = async(id:string) =>{
 export const mensagemSucesso = () => {
     return {message: "Operação realizada com sucesso!"};
 }
+// retorna uma mensagem de erro
+export const mensagemErro = (error: any) => {
+    return {error: error.message || "Ocorreu um erro na operação."};
+}

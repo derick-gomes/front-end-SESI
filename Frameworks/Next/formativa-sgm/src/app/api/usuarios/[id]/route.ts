@@ -1,6 +1,6 @@
 //Rotas que Precisam do ID (PATCH ou PUT, GET (one), DELETE)
 
-import { deleteEquipamento, getOneEquipamento, updateEquipamento } from "@/controllers/EquipamentoController";
+import { deleteUsuario, getOneUsuario, updateUsuario } from "@/controllers/UsuarioController";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Parametro{
@@ -12,11 +12,11 @@ export async function PATCH(req: NextRequest, {params}:{params:Parametro}){
     try {
         const {id} = params;
         const data = await req.json();
-        const EquipamentoAtualizado = await updateEquipamento(id, data);
-        if(!EquipamentoAtualizado){
+        const usuarioAtualizado = await updateUsuario(id, data);
+        if(!usuarioAtualizado){
             return NextResponse.json({success:false, error: "Not Found"});
         }
-        return NextResponse.json({success:true, data: EquipamentoAtualizado});
+        return NextResponse.json({success:true, data: usuarioAtualizado});
     } catch (error) {
         return NextResponse.json({success:false,error:error}); 
     }
@@ -26,7 +26,7 @@ export async function PATCH(req: NextRequest, {params}:{params:Parametro}){
 export async function GET({params}:{params:Parametro}){
     try {
         const {id} = params;
-        const data = await getOneEquipamento(id);
+        const data = await getOneUsuario(id);
         if(!data){
             return NextResponse.json({success:false, error: "Not Found"});
         }
@@ -40,7 +40,7 @@ export async function GET({params}:{params:Parametro}){
 export async function DELETE({params}:{params:Parametro}){
     try {
         const {id} = params;
-        await deleteEquipamento(id);
+        await deleteUsuario(id);
         return NextResponse.json({success:true, data:{}});
     } catch (error) {
         return NextResponse.json({success:false, error:error});

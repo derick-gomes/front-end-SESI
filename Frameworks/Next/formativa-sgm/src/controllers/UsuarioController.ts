@@ -19,22 +19,34 @@ export const getOneUsuario = async(id:string) => {
 //create
 export const createUsuario = async(data: Partial<IUsuario>) =>{
     await connectMongo();
-    const novoUsuario = new Usuario(data); // cria um novo usuario
-    const novoUsuarioId = novoUsuario.save() //salva o novo usuario no BD
-    return novoUsuarioId; //retorna o ID do novo usuario
+    const novoUsuario = new Usuario(data); //cria o usuário
+    const novoUsuarioId = novoUsuario.save(); //salva o usuário no BD
+    return novoUsuarioId;
 }
 
 //update
-export const updateUsuario = async(id:string, data:Partial<IUsuario>) =>{
+export const updateUsuario = async (id:string, data:Partial<IUsuario>) => {
     await connectMongo();
-    const usuarioAtualizado = await Usuario.findByIdAndUpdate(id, data, {new:true}); //atualiza o usuario pelo ID
-    return usuarioAtualizado; //retorna o usuario atualizado
+    const usuarioAtualizado = await Usuario.findByIdAndUpdate(id, data, {new:true});
+    return usuarioAtualizado;    
 }
 
 //delete
-export const deleteUsuario = async(id:string) =>{
+export const deleteUsuario = async (id:string) =>{
     await connectMongo();
     await Usuario.findByIdAndDelete(id);
 }
 
-// retorna uma mensagem de sucesso
+// método para autenticação do do usuário (login) a senha é comparada
+export const autenticaUsuario = async(email:string, senha:string) =>{
+    await connectMongo();
+    //buscar o usuário ( email)
+    const usuario = await Usuario.find({email}).select("+senha");
+    //se usuário não encontrado
+    if(!usuario || usuario.length==0)return null;
+    //se caso usuário foi encotrado
+    const senhaSecreta = await usuario[0].compreSenha(senha);//booleana
+    if(!senhaSecreta) return null;
+    //se deu certo
+    return usuario[0];
+} 
