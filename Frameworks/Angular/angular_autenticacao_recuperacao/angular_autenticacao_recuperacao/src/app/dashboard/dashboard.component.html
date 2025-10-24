@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>Dashboard</h1>
+    <button class="btn btn-logout" (click)="logout()">Sair</button>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="welcome-card">
+      <h2>Bem-vindo, {{ currentUser?.name }}!</h2>
+      <p>Você está logado no sistema de autenticação Angular.</p>
+      <div class="user-info">
+        <p><strong>Email:</strong> {{ currentUser?.email }}</p>
+        <p><strong>ID:</strong> {{ currentUser?.id }}</p>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Autenticação</h3>
+        <p>Sistema completo de login e registro com validações.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Recuperação de Senha</h3>
+        <p>Fluxo completo para recuperação e redefinição de senha.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Proteção de Rotas</h3>
+        <p>Rotas protegidas que requerem autenticação.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Interface Responsiva</h3>
+        <p>Design moderno e responsivo para todos os dispositivos.</p>
+      </div>
+    </div>
+  </main>
+</div>
